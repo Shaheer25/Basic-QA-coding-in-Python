@@ -12,3 +12,8 @@ for i in range(100):
         print(i, end = "\n")
 
 print()
+
+if isprime(10):
+   print("Is a prime")
+else :
+    print("not a prime")
