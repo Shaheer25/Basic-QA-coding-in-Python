@@ -1,0 +1,10 @@
+str = input()
+
+l=[]
+
+for ch in str:
+    if ch not in l:
+        l.append(ch)
+
+op=''.join(l)
+print(op)
