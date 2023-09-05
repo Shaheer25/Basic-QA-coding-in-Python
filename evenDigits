@@ -1,0 +1,16 @@
+def even(num):
+  even_nums=""
+  
+  res=str(num)
+  
+  for digit in res:
+    if int(digit) % 2 == 0:
+      even_nums+=digit + "\n"
+  return even_nums
+  
+  
+num=int(input())
+
+result=even(num)
+
+print(result,end="\n")
