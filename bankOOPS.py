@@ -1,34 +1,43 @@
 class Bank:
     def __init__(self,accountNumber,balance):
-        self.balance = balance
         self.accountNumber=accountNumber
+        self.balance=balance
 
-    def deposit(self, amount):
-        self.balance += amount
-        return f"balance {self.balance}"
+    def deposit(self,amount):
+        self.balance+=amount
+        return f"balance{self.balance}"
 
-    def withdraw(self,amount):
-        if amount > self.balance:
-            return "Insufficient Balance"
-        else:
+    def withdraw(self,amount,pin):
+        if pin==1234 and amount<self.balance:
             self.balance-=amount
-            return f"balance {self.balance}"
+            return f"balance{self.balance}"
+        else:
+            print("Pin/Insufficient Balance")
 
 
 accountNumber = int(input("Enter Your Account Number"))
 balance = int(input("Enter Your Balance"))
-shaheer= Bank(accountNumber,balance)
+pin = int(input("Enter you security Pin"))
 
-while True :
-    choice = int(input("Enter you Choice\n1.Account Info\n2.Check Balance\n3.deposit\n4.withdraw\n"))
+sbi=Bank(accountNumber,balance)
 
-    if choice == 1:
-        print("Account Number",shaheer.accountNumber)
-    elif choice==2:
-        print("balance:",shaheer.balance,)
-    elif choice==3:
-        amount = int(input("Enter the Amount to Deposit"))
-        print(shaheer.deposit(amount))
-    elif choice == 4:
-        amount = int(input("Enter the Amount to Withdraw"))
-        print(shaheer.withdraw(amount))
+
+while True:
+    print("1.Account Info\n2.Check Balance\n3.Deposit\n4.withdraw")
+    choice = input("\nEnter your choice")
+    if choice=="":
+        break
+
+    if choice=="1":
+        print("account number:",sbi.accountNumber)
+    elif choice=="2":
+        print("Balance:",sbi.balance)
+    elif choice=="3":
+        amount=int(input("Enter Your Amount"))
+        print(sbi.deposit(amount))
+    elif choice =="4":
+        amount = int(input("Enter Your Amount"))
+        print(sbi.withdraw(amount,pin))
+    else:
+        print("Invalid Choice")
+
