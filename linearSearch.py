@@ -1,15 +1,17 @@
-def linearSearch(target,num):
-  for i in range(len(num)):
-    if num[i]==target:
-      return i 
-  return -1
-  
-  
-num = [25, 11, 16, 15, 24]
-target = 16
-res= linearSearch(target,num)
+def linearSearch(num,target):
+    for i in range (len(num)):
+        if num[i]==target:
+            return i
+    return -1
 
-if res != -1:
-    print(f"The value {target} found at index {res}")
+
+num=[10,56,89,4,8,99]
+print(num)
+target = int(input("\nenter the element you want to search"))
+
+result = linearSearch(num,target)
+
+if result != -1:
+    print(f"{target} is  found at {result+1}")
 else:
-    print(f"The value {target} is not found")
+    print(f"{target} is not found in {num}")
